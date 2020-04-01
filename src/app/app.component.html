@@ -1,0 +1,7 @@
+<app-login></app-login>
+<h1 *ngIf="!isLoggedIn"><a routerLink="/shop" i18n="@@welcome">Welcome to shop!</a></h1>
+<h1 *ngIf="isLoggedIn"><a routerLink="/admin" i18n="@@welcome">Welcome to shop!</a></h1>
+<p *ngIf="!isLoggedIn" style="font-size:2em; float:right; color:green; margin-right: 1em;">
+  <mat-icon fontSet="fas" fontIcon="fa-shopping-cart" inline [matBadge]="itemsInCart" matBadgeColor="warn" [matBadgeHidden]="itemsInCart === 0" routerLink="/cart"></mat-icon>
+</p>
+<router-outlet></router-outlet>

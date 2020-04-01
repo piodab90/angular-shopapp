@@ -1,0 +1,16 @@
+<h1 i18n="@@itemsInCart">Items in cart</h1>
+<h3 *ngIf="itemsInCart.length === 0" i18n="@@cartEmpty">Your cart is empty</h3>
+<mat-list>
+  <mat-list-item *ngFor="let cartItem of itemsInCart">
+    <div mat-line>{{cartItem.item.name}}</div>
+    <div mat-line>
+        <mat-form-field floatLabel="never" appearance="fill">
+            <mat-label i18n="@@amount">Amount</mat-label>
+            <input matInput type="number" [(ngModel)]="cartItem.amount" min="0" max="{{cartItem.item.quantity + cartItem.amount}}" (change)="updateItemQuantity(cartItem)">
+        </mat-form-field>
+        <button color="primary" mat-raised-button (click)="removeCartItems(cartItem)" i18n="@@removeItem">Remove item</button>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+<button routerLink="/shop" i18n="@@goBack">Go back</button>
