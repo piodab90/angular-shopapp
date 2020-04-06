@@ -22,16 +22,15 @@ export class CartService {
 
   addItemToCart(item: Item, amountOfItems: number) {
     let isItemAlreadyInCart: boolean = false;
-    this.itemService.updateItemQuantity(item, -amountOfItems);
+    let lackingItems = this.itemService.updateItemQuantity(item, -amountOfItems);
     this.itemsInCart.forEach(itemInCart => {
       if (itemInCart.item.id === item.id) {
-        itemInCart.amount += amountOfItems;
+        itemInCart.amount += amountOfItems - lackingItems;
         isItemAlreadyInCart = true;
       }
     });
     if (isItemAlreadyInCart === false) {
-      // let item: Item = this.itemService.getItemById(itemId);
-      let cartItem = new CartItems(item, amountOfItems);
+      let cartItem = new CartItems(item, amountOfItems - lackingItems);
       this.itemsInCart.push(cartItem);
     }
 
@@ -45,6 +44,15 @@ export class CartService {
       this.itemService.updateItemQuantity(cartItem.item, cartItem.amount);
       this.cartChanged();
     }
+  }
+
+  setItemAmount(itemId: number, amount: number) {
+    this.itemsInCart.forEach(itemInCart => {
+      if (itemInCart.item.id === itemId) {
+        itemInCart.amount = amount;
+      }
+    });
+    this.cartChanged();
   }
 
   cartChanged() {

@@ -31,7 +31,7 @@ export class ItemAddComponent implements OnInit {
   }
 
   isEditMode(): boolean {
-    if (!this.item || this.item === null || this.item.id < 1) {
+    if (!this.item.id) {
       return false;
     }
     return true;

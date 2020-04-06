@@ -35,16 +35,15 @@ export class ItemService {
     return observableItem.asObservable();
   }
 
-  updateItemQuantity(item: Item, amount: number) {
-    if (item.quantity + amount < 0) {
-      return throwError("Not enough" + item.name + "items!");
-    }
+  updateItemQuantity(item: Item, amount: number): number {
     item.quantity += amount;
-    console.log(item);
-    this.items.forEach(element => {
-      console.log(element);
-    });
+    let lackingItems = 0;
+    if (item.quantity < 0) {
+      lackingItems = -item.quantity;
+      item.quantity = 0;
+    }
     this.itemsChanged();
+    return lackingItems;
   }
 
   addItem(item: Item) {

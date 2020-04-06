@@ -6,7 +6,7 @@
     <div mat-line>
         <mat-form-field floatLabel="never" appearance="fill">
             <mat-label i18n="@@amount">Amount</mat-label>
-            <input matInput type="number" [(ngModel)]="cartItem.amount" min="0" max="{{cartItem.item.quantity + cartItem.amount}}" (change)="updateItemQuantity(cartItem)">
+            <input matInput type="number" [(ngModel)]="cartItem.amount" (change)="updateItemQuantity(cartItem)">
         </mat-form-field>
         <button color="primary" mat-raised-button (click)="removeCartItems(cartItem)" i18n="@@removeItem">Remove item</button>
     </div>
