@@ -9,14 +9,12 @@ import { ItemService } from './item.service';
 import { AuthGuard } from './auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import '@angular/localize/init'
-import { ItemAddComponent } from './item-add/item-add.component';
+import '@angular/localize/init';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    ItemAddComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,

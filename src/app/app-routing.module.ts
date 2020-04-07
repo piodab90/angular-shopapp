@@ -8,7 +8,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 
-
 const routes: Routes = [ {path: '', redirectTo: '/shop', pathMatch: 'full' },
   { path: 'shop', component: ShoppingListComponent },
   { path: 'cart', component: ShoppingCartComponent },

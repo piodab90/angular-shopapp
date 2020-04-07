@@ -20,7 +20,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.cartService.getItemsInCart().subscribe(itemsInCart => this.itemsInCart = itemsInCart.length);
+    this.cartService.getItemsInCart().subscribe(itemsInCart => {
+      this.itemsInCart = 0;
+      itemsInCart.forEach(element => {
+        this.itemsInCart += element.amount;
+      });
+    });
   }
 
   get isLoggedIn() {

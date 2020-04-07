@@ -28,7 +28,14 @@ export class ShoppingCartComponent implements OnInit {
   updateItemQuantity(cartItem: CartItems) {
     this.amountsOfItemsInCart.forEach(element => {
       if (element.id === cartItem.item.id) {
-        this.itemService.updateItemQuantity(cartItem.item, element.amount - cartItem.amount);
+        if (cartItem.amount < 0) {
+          cartItem.amount = 0;
+          element.amount = 0;
+        } else {
+          cartItem.amount -= this.itemService.updateItemQuantity(cartItem.item, element.amount - cartItem.amount);
+          element.amount = cartItem.amount;
+        }
+        this.cartService.setItemAmount(cartItem.item.id, cartItem.amount);
       }
     });
   }
