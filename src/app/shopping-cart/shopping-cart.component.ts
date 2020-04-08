@@ -12,7 +12,7 @@ export class ShoppingCartComponent implements OnInit {
 
   itemsInCart: CartItems[];
   amountsOfItemsInCart = [];
-
+  totalCost: number = 0;
   constructor(private cartService: CartService, private itemService: ItemService) { }
 
   ngOnInit(): void {
@@ -42,5 +42,13 @@ export class ShoppingCartComponent implements OnInit {
 
   removeCartItems(cartItemToRemove: CartItems) {
     this.cartService.removeItemsFromCart(cartItemToRemove);
+  }
+
+  getTotalCost():number{
+    this.totalCost = 0;
+    this.itemsInCart.forEach(element => {
+      this.totalCost += (element.item.price * element.amount)
+    });
+    return this.totalCost;
   }
 }

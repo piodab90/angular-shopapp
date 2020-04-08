@@ -8,9 +8,18 @@
             <mat-label i18n="@@amount">Amount</mat-label>
             <input matInput type="number" [(ngModel)]="cartItem.amount" (change)="updateItemQuantity(cartItem)">
         </mat-form-field>
+        <mat-form-field floatLabel="never" appearance="fill">
+          <mat-label i18n="@@price">Price</mat-label>
+          <input matInput type="number" [(ngModel)]="cartItem.item.price" disabled="true">
+      </mat-form-field>
+      <mat-form-field floatLabel="never" appearance="fill">
+        <mat-label i18n="@@cost">Cost</mat-label>
+        <input matInput type="number" [(ngModel)]="cartItem.item.price * cartItem.amount" disabled="true">
+    </mat-form-field>
         <button color="primary" mat-raised-button (click)="removeCartItems(cartItem)" i18n="@@removeItem">Remove item</button>
     </div>
     <mat-divider></mat-divider>
   </mat-list-item>
+  <h1 i18n="@@itemsInCart">Total cost: {{getTotalCost()}}</h1>
 </mat-list>
 <button routerLink="/shop" i18n="@@goBack">Go back</button>
