@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -9,28 +11,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-  }
-
-  loginUser(event) {
-    event.preventDefault();
-    const target = event.target;
-    const username = target.querySelector("#username").value;
-    const password = target.querySelector("#password").value;
-
-    let result = this.auth.login(username, password);
-    if (result === true) {
-      this.router.navigate(['/admin']);
-    } else {
-      window.alert("Invalid credentials!");
-    }
   }
 
   logout() {
     let result = this.auth.logout();
     this.router.navigate(['/']);
+  }
+
+  openLoginDialog(): void {
+    this.dialog.open(LoginDialogComponent, {
+      width: '290px'
+    });
   }
 
   get isLoggedIn() {

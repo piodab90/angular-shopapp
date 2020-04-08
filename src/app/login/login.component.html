@@ -1,8 +1,4 @@
 <div style="float:right;">
-    <form *ngIf="!isLoggedIn" (submit)="loginUser($event)">
-        <input type="text" placeholder="Username" id="username" i18-placeholder="@@username">
-        <input type="password" placeholder="Password" id="password" i18-placeholder="@@password">
-        <input type="submit" value="Submit" i18-value="@@submit">
-    </form>
-    <button *ngIf="isLoggedIn" (click)="logout()" i18n="@@logout">Logout</button>
+    <button color="accent" mat-raised-button *ngIf="!isLoggedIn" (click)="openLoginDialog()" i18n="@@login">Login</button>
+    <button color="accent" mat-raised-button *ngIf="isLoggedIn" (click)="logout()" i18n="@@logout">Logout</button>
 </div>

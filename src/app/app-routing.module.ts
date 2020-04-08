@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 const routes: Routes = [ {path: '', redirectTo: '/shop', pathMatch: 'full' },
   { path: 'shop', component: ShoppingListComponent },
@@ -22,4 +23,4 @@ const routes: Routes = [ {path: '', redirectTo: '/shop', pathMatch: 'full' },
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ShoppingListComponent, ItemAddComponent, ShoppingCartComponent, PageNotFoundComponent, LoginComponent, AdminComponent]
+export const routingComponents = [ShoppingListComponent, ItemAddComponent, ShoppingCartComponent, PageNotFoundComponent, LoginComponent, AdminComponent, LoginDialogComponent]
