@@ -8,8 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MaterialCOmponents = [
   MatButtonModule,
@@ -20,7 +19,8 @@ const MaterialCOmponents = [
   MatListModule,
   MatInputModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDialogModule
 ];
 
 @NgModule({

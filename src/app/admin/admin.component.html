@@ -1,6 +1,6 @@
-<h1 i18n="@@itemsInStore">Items in store</h1>
-<button routerLink="/admin/add" style="float:right;" i18n="@@addNewItem">Add new item</button>
-<mat-form-field>
+<h1 class="margin-left" i18n="@@itemsInStore">Items in store</h1>
+<button color="primary" mat-raised-button routerLink="/admin/add" style="float:right;" i18n="@@addNewItem">Add new item</button>
+<mat-form-field class="margin-left">
     <mat-label i18n="@@filter">Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search" i18-placeholder="@@search">
 </mat-form-field>

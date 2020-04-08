@@ -26,3 +26,12 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-price {
     padding: 16px;
 }
+
+.mat-raised-button {
+    margin: 0px 10px 20px 0px;
+    padding: 5px 20px;
+}
+
+.mat-form-field {
+    margin-right: 10px;
+}
