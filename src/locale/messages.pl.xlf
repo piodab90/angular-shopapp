@@ -7,11 +7,9 @@
         <target>Witamy w sklepie!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">2</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="itemsInStore" datatype="html">
@@ -19,11 +17,9 @@
         <target>Przedmioty dostępne w sklepie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.html</context>
-          <context context-type="linenumber">1</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="filter" datatype="html">
@@ -31,11 +27,9 @@
         <target>Filtry</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.html</context>
-          <context context-type="linenumber">3</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="typeAmountOfItems" datatype="html">
@@ -43,15 +37,13 @@
         <target>Podaj ilość przedmiotów</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.html</context>
-          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
-            <trans-unit id="addToCart" datatype="html">
+        <trans-unit id="addToCart" datatype="html">
         <source>Add to cart</source>
         <target>Dodaj do koszyka</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.html</context>
-          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="itemCreation" datatype="html">
@@ -59,7 +51,6 @@
         <target>Tworzenie nowego przedmiotu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="itemEdition" datatype="html">
@@ -67,7 +58,6 @@
         <target>Edycja przedmiotu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="name" datatype="html">
@@ -75,7 +65,6 @@
         <target>Nazwa</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="price" datatype="html">
@@ -83,7 +72,9 @@
         <target>Cena</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
         </context-group>
       </trans-unit>
       <trans-unit id="quantity" datatype="html">
@@ -91,7 +82,6 @@
         <target>Ilość</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addItem" datatype="html">
@@ -99,7 +89,6 @@
         <target>Dodaj przedmiot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="goBack" datatype="html">
@@ -107,11 +96,9 @@
         <target>Powrót</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
-          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
-          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="itemsInCart" datatype="html">
@@ -119,7 +106,6 @@
         <target>Przedmioty w koszyku</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
-          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cartEmpty" datatype="html">
@@ -127,7 +113,6 @@
         <target>Koszyk jest pusty</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
-          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="amount" datatype="html">
@@ -135,7 +120,13 @@
         <target>Ilość</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
-          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cost" datatype="html">
+        <source>Cost</source>
+        <target>Koszt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
         </context-group>
       </trans-unit>
       <trans-unit id="removeItem" datatype="html">
@@ -143,11 +134,16 @@
         <target>Usuń przedmiot</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.html</context>
-          <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="totalCostMessage" datatype="ts">
+        <source>Total cost:</source>
+        <target>Łączny koszt:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.ts</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pageNotFound" datatype="html">
@@ -155,7 +151,6 @@
         <target>Nie znaleziono strony!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page-not-found/page-not-found.component.html</context>
-          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="logout" datatype="html">
@@ -163,7 +158,6 @@
         <target>Wyloguj</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login/login.component.html</context>
-          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addNewItem" datatype="html">
@@ -171,7 +165,6 @@
         <target>Dodaj</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="editItem" datatype="html">
@@ -179,7 +172,6 @@
         <target>Edytuj</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/admin.component.html</context>
-          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login" datatype="html">
