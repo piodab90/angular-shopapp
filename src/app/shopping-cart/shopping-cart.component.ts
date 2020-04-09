@@ -13,6 +13,8 @@ export class ShoppingCartComponent implements OnInit {
   itemsInCart: CartItems[];
   amountsOfItemsInCart = [];
   totalCost: number = 0;
+  totalCostMessage = $localize`:@@totalCostMessage:Total cost: `;
+
   constructor(private cartService: CartService, private itemService: ItemService) { }
 
   ngOnInit(): void {
