@@ -20,7 +20,7 @@ export class CartService {
     return this.observableItemsInCart.asObservable();
   }
 
-  addItemToCart(item: Item, amountOfItems: number) {
+  addItemToCart(item: Item, amountOfItems: number): number {
     let isItemAlreadyInCart: boolean = false;
     let lackingItems = this.itemService.updateItemQuantity(item, -amountOfItems);
     this.itemsInCart.forEach(itemInCart => {
@@ -35,6 +35,7 @@ export class CartService {
     }
 
     this.cartChanged();
+    return lackingItems;
   }
 
   removeItemsFromCart(cartItem: CartItems) {

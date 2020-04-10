@@ -214,12 +214,109 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="removingItemConfirmationTitle" datatype="html">
+        <source>Removing item confirmation</source>
+        <target>Potwierdzenia usunięcia przedmiotu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin-remove-item-dialog/admin-remove-item-dialog.component.html</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="removingItemConfirmation" datatype="html">
+        <source>Are you sure you want to permanently remove this item?</source>
+        <target>Czy na pewno chcesz trwale usunąć ten przedmiot?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin-remove-item-dialog/admin-remove-item-dialog.component.html</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="yes" datatype="html">
+        <source>Yes</source>
+        <target>Tak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin-remove-item-dialog/admin-remove-item-dialog.component.html</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="no" datatype="html">
+        <source>No</source>
+        <target>Nie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin-remove-item-dialog/admin-remove-item-dialog.component.html</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="invalidCredentials" datatype="html">
         <source>Invalid username or password</source>
         <target>Błędna nazwa użytkownika lub hasło</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/login-dialog/login-dialog.component.html</context>
-          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="oneItem" datatype="ts">
+        <source> item</source>
+        <target> przedmiot</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fewItems" datatype="ts">
+        <source> items</source>
+        <target> przedmioty</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="manyItems" datatype="ts">
+        <source> items</source>
+        <target> przedmiotów</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lackingItemsPrefix" datatype="ts">
+        <source>Only </source>
+        <target>Dodano tylko </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lackingItems" datatype="ts">
+        <source> have been added to cart because there were not enough items in store.</source>
+        <target> do koszyka z powodu braku podanej ilości w magazynie.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noItemsAdded" datatype="ts">
+        <source>No items have been added to cart because there were not enough items in store.</source>
+        <target>Nie dodano przedmiotów do koszyka z powodu ich braku w magazynie.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-list/shopping-list.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="removedItemFromCart" datatype="ts">
+        <source>Item has been removed from cart.</source>
+        <target>Przedmiot został usunięty z koszyka.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shopping-cart/shopping-cart.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="userLoggedOut" datatype="ts">
+        <source>You have been logged out.</source>
+        <target>Zostałeś wylogowany.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="itemRemoved" datatype="ts">
+        <source>Item has been removed.</source>
+        <target>Przedmiot został usunięty.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/admin.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="itemAdded" datatype="ts">
+        <source>Item has been added.</source>
+        <target>Przedmiot został dodany.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/item-add/item-add.component.ts</context>
         </context-group>
       </trans-unit>
     </body>

@@ -10,6 +10,7 @@ import { AuthGuard } from './auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import '@angular/localize/init';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import '@angular/localize/init';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [ItemService, AuthGuard],
+  providers: [ItemService, AuthGuard, {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
