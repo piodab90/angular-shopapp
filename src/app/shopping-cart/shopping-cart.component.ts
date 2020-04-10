@@ -13,6 +13,8 @@ export class ShoppingCartComponent implements OnInit {
 
   itemsInCart: CartItems[];
   amountsOfItemsInCart = [];
+  totalCost: number = 0;
+  totalCostMessage = $localize`:@@totalCostMessage:Total cost: `;
   removedItemFromCartMessage = $localize`:@@removedItemFromCart:Item has been removed from cart.`;
   oneItemMessage = $localize`:@@oneItem: item`;
   fewItemsMessage = $localize`:@@fewItems: items`;
@@ -70,5 +72,13 @@ export class ShoppingCartComponent implements OnInit {
   removeCartItems(cartItemToRemove: CartItems) {
     this.cartService.removeItemsFromCart(cartItemToRemove);
     this.snackBar.open(this.removedItemFromCartMessage);
+  }
+
+  getTotalCost():number{
+    this.totalCost = 0;
+    this.itemsInCart.forEach(element => {
+      this.totalCost += (element.item.price * element.amount)
+    });
+    return this.totalCost;
   }
 }
