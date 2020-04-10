@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login-dialog',

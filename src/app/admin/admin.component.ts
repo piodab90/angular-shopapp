@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Item } from '../Item';
 import { ItemService } from '../item.service';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AbstractShoppingListComponent } from '../shopping-list/abstract-shopping-list.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminRemoveItemDialogComponent } from '../admin-remove-item-dialog/admin-remove-item-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Item } from '../Item';
 
 @Component({
   selector: 'app-admin',
@@ -20,11 +22,22 @@ import { AbstractShoppingListComponent } from '../shopping-list/abstract-shoppin
 })
 export class AdminComponent extends AbstractShoppingListComponent {
 
-  constructor(private auth: AuthService, itemService: ItemService, router: Router, route: ActivatedRoute) {
+  itemRemovedMessage = $localize`:@@itemRemoved:Item has been removed.`;
+
+  constructor(itemService: ItemService, router: Router, route: ActivatedRoute, public dialog: MatDialog, private snackBar: MatSnackBar) {
     super(itemService, router, route);
   }
 
   removeItem(item: Item) {
-    this.itemService.removeItem(item);
+    const dialogRef = this.dialog.open(AdminRemoveItemDialogComponent, {
+      width: '435px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.itemService.removeItem(item);
+        this.snackBar.open(this.itemRemovedMessage);
+      }
+    });
   }
 }
