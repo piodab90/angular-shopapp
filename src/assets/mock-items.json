@@ -1,8 +1,8 @@
 [
-    { "id": 1, "name": "Apple", "price": 1.00, "quantity": 15 },
-    { "id": 2, "name": "Banana", "price": 0.80, "quantity": 10 },
-    { "id": 3, "name": "Mango", "price": 2.00, "quantity": 7 },
-    { "id": 4, "name": "Strawberry", "price": 0.10, "quantity": 100 },
-    { "id": 5, "name": "Watermelon", "price": 5.00, "quantity": 12 },
-    { "id": 6, "name": "Pineapple", "price": 4.00, "quantity": 6 }
+    { "id": 1, "name": "Apple", "price": 1.00, "quantity": 15, "description": "An apple is a round fruit with red or green skin and a whitish inside. One variety of apple might be sweet, another sour."},
+    { "id": 2, "name": "Banana", "price": 0.80, "quantity": 10, "description": "A banana is a curved, yellow fruit with a thick skin and soft sweet flesh."},
+    { "id": 3, "name": "Mango", "price": 2.00, "quantity": 7, "description": "A mango is a sweet tropical fruit, and it's also the name of the trees on which the fruit grows. Ripe mangoes are juicy, fleshy, and delicious."},
+    { "id": 4, "name": "Strawberry", "price": 0.10, "quantity": 100, "description": "Strawberries are soft, sweet, bright red berries. They're also delicious." },
+    { "id": 5, "name": "Watermelon", "price": 5.00, "quantity": 12, "description": "Watermelon is large, juicy fruit with a hard green rind and sweet watery red pulp." },
+    { "id": 6, "name": "Pineapple", "price": 4.00, "quantity": 6, "description": "A pineapple is a sweet tropical fruit with a tough leathery skin and spiky leaves on top." }
 ]
