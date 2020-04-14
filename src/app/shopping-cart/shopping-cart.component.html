@@ -1,25 +1,25 @@
-<h1 i18n="@@itemsInCart">Items in cart</h1>
-<h3 *ngIf="itemsInCart.length === 0" i18n="@@cartEmpty">Your cart is empty</h3>
+<h1 class="margin-left" i18n="@@itemsInCart">Items in cart</h1>
+<h3 *ngIf="itemsInCart.length === 0" class="margin-left" i18n="@@cartEmpty">Your cart is empty</h3>
 <mat-list>
-  <mat-list-item *ngFor="let cartItem of itemsInCart">
+  <mat-list-item class="shopping-cart-list-item" *ngFor="let cartItem of itemsInCart">
     <div mat-line>{{cartItem.item.name}}</div>
     <div mat-line>
-        <mat-form-field floatLabel="never" appearance="fill">
-            <mat-label i18n="@@amount">Amount</mat-label>
-            <input matInput type="number" [(ngModel)]="cartItem.amount" (change)="updateItemQuantity(cartItem)">
-        </mat-form-field>
-        <mat-form-field floatLabel="never" appearance="fill">
-          <mat-label i18n="@@price">Price</mat-label>
-          <input matInput type="number" [(ngModel)]="cartItem.item.price" disabled="true">
-      </mat-form-field>
       <mat-form-field floatLabel="never" appearance="fill">
+        <mat-label i18n="@@amount">Amount</mat-label>
+        <input matInput type="number" [(ngModel)]="cartItem.amount" (change)="updateItemQuantity(cartItem)">
+      </mat-form-field>
+      <mat-form-field class="margin-left" floatLabel="never" appearance="fill">
+        <mat-label i18n="@@price">Price</mat-label>
+        <input matInput type="number" [(ngModel)]="cartItem.item.price" disabled="true">
+      </mat-form-field>
+      <mat-form-field class="margin-left" floatLabel="never" appearance="fill">
         <mat-label i18n="@@cost">Cost</mat-label>
         <input matInput type="number" [(ngModel)]="cartItem.item.price * cartItem.amount" disabled="true">
-    </mat-form-field>
-        <button color="primary" mat-raised-button (click)="removeCartItems(cartItem)" i18n="@@removeItem">Remove item</button>
+      </mat-form-field>
+      <button class="margin-left" color="primary" mat-raised-button (click)="removeCartItems(cartItem)" i18n="@@removeItem">Remove item</button>
     </div>
     <mat-divider></mat-divider>
   </mat-list-item>
-  <h1 i18n="@@totalCost">{{totalCostMessage}} {{getTotalCost()}}</h1>
+  <h1 class="margin-left" i18n="@@totalCost">{{totalCostMessage}} {{getTotalCost()}}</h1>
 </mat-list>
-<button routerLink="/shop" i18n="@@goBack">Go back</button>
+<button class="margin-left" color="primary" mat-raised-button routerLink="/shop" i18n="@@goBack">Go back</button>

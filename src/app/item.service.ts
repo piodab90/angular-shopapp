@@ -4,13 +4,15 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { CartItems } from './cartItems';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  private url: string = "/assets/mock-items.json";
+  // private url: string = "/assets/mock-items.json";
+  private url: string = "/items/all";
   private items: Item[];
   private observableItems: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>(this.items);
 
@@ -25,6 +27,27 @@ export class ItemService {
     return throwError(error.message || "Server Error");
   }
 
+  addItemToList(item: Item) {
+    this.items.push(item);
+    this.itemsChanged();
+  }
+
+  updateItemInList(item: Item) {
+    const index: number = this.items.findIndex(i => i.id === item.id);
+    if (index !== -1) {
+      this.items[index] = item;
+      this.itemsChanged();
+    }
+  }
+
+  removeItemFromList(item: Item) {
+    const index: number = this.items.findIndex(i => i.id === item.id);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+      this.itemsChanged();
+    }
+  }
+
   getItems(): Observable<Item[]> {
     return this.observableItems.asObservable();
   }
@@ -35,36 +58,22 @@ export class ItemService {
     return observableItem.asObservable();
   }
 
-  updateItemQuantity(item: Item, amount: number): number {
-    item.quantity += amount;
-    let lackingItems = 0;
-    if (item.quantity < 0) {
-      lackingItems = -item.quantity;
-      item.quantity = 0;
-    }
-    this.itemsChanged();
-    return lackingItems;
+  //returned Item is updated version of item object
+  //returned amount is amount of lacking items
+  updateItemQuantity(item: Item, amount: number): Observable<CartItems> {
+    return this.http.put<CartItems>('/items/updateItemQuantity/' + item.id + '/' + amount, null).pipe(catchError(this.errorHandler));
   }
 
-  addItem(item: Item) {
-    let maxId = 0;
-    this.items.forEach(element => {
-      if (element.id > maxId) {
-        maxId = element.id;
-      }
-    });
-    maxId++;
-    item.id = maxId;
-    this.items.push(item);
-    this.itemsChanged();
+  addItem(item: Item): Observable<Item> {
+    return this.http.post<Item>('/items/add',item).pipe(catchError(this.errorHandler));
   }
 
-  removeItem(item: Item) {
-    const index: number = this.items.indexOf(item);
-    if (index !== -1) {
-        this.items.splice(index, 1);
-        this.itemsChanged();
-    }  
+  updateItem(item: Item): Observable<Item> {
+    return this.http.put<Item>('/items/update',item).pipe(catchError(this.errorHandler));
+  }
+
+  removeItem(item: Item): Observable<Item> {
+    return this.http.delete<Item>('/items/delete/' + item.id).pipe(catchError(this.errorHandler));
   }
 
   itemsChanged() {

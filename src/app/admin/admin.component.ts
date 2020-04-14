@@ -33,10 +33,12 @@ export class AdminComponent extends AbstractShoppingListComponent {
       width: '435px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.beforeClosed().subscribe(result => {
       if (result === true) {
-        this.itemService.removeItem(item);
-        this.snackBar.open(this.itemRemovedMessage);
+        this.itemService.removeItem(item).subscribe(element => {
+          this.itemService.removeItemFromList(item);
+          this.snackBar.open(this.itemRemovedMessage);
+        });
       }
     });
   }
