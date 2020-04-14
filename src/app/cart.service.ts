@@ -20,30 +20,37 @@ export class CartService {
     return this.observableItemsInCart.asObservable();
   }
 
-  addItemToCart(item: Item, amountOfItems: number): number {
-    let isItemAlreadyInCart: boolean = false;
-    let lackingItems = this.itemService.updateItemQuantity(item, -amountOfItems);
-    this.itemsInCart.forEach(itemInCart => {
-      if (itemInCart.item.id === item.id) {
-        itemInCart.amount += amountOfItems - lackingItems;
-        isItemAlreadyInCart = true;
+  addItemToCart(item: Item, amountOfItems: number): Observable<number> {
+    let lackingItems;
+    let observableLackingItems: BehaviorSubject<number> = new BehaviorSubject<number>(lackingItems);
+    this.itemService.updateItemQuantity(item, -amountOfItems).subscribe(element => {
+      this.itemService.updateItemInList(element.item);
+      lackingItems = element.amount;
+      let isItemAlreadyInCart: boolean = false;
+      this.itemsInCart.forEach(itemInCart => {
+        if (itemInCart.item.id === item.id) {
+          itemInCart.amount += amountOfItems - lackingItems;
+          isItemAlreadyInCart = true;
+        }
+      });
+      if (isItemAlreadyInCart === false) {
+        let cartItem = new CartItems(item, amountOfItems - lackingItems);
+        this.itemsInCart.push(cartItem);
       }
+      observableLackingItems.next(lackingItems)
+      this.cartChanged();
     });
-    if (isItemAlreadyInCart === false) {
-      let cartItem = new CartItems(item, amountOfItems - lackingItems);
-      this.itemsInCart.push(cartItem);
-    }
-
-    this.cartChanged();
-    return lackingItems;
+    return observableLackingItems.asObservable();
   }
 
   removeItemsFromCart(cartItem: CartItems) {
     let index = this.itemsInCart.indexOf(cartItem);
     if (index > -1) {
       this.itemsInCart.splice(index, 1);
-      this.itemService.updateItemQuantity(cartItem.item, cartItem.amount);
-      this.cartChanged();
+      this.itemService.updateItemQuantity(cartItem.item, cartItem.amount).subscribe(element => {
+        this.itemService.updateItemInList(element.item);
+        this.cartChanged();
+      });
     }
   }
 

@@ -41,8 +41,11 @@ export class ShoppingCartComponent implements OnInit {
         if (cartItem.amount < 0) {
           cartItem.amount = 0;
           element.amount = 0;
-        } else {
-          let lackingItems = this.itemService.updateItemQuantity(cartItem.item, element.amount - cartItem.amount);
+        }
+        let lackingItemsObservable = this.itemService.updateItemQuantity(cartItem.item, element.amount - cartItem.amount);
+        lackingItemsObservable.subscribe(response => {
+          this.itemService.updateItemInList(response.item);
+          let lackingItems = response.amount;
           if (lackingItems > 0) {
             let message: string;
             if (lackingItems === (cartItem.amount - element.amount)) {
@@ -63,8 +66,8 @@ export class ShoppingCartComponent implements OnInit {
           }
           cartItem.amount -= lackingItems;
           element.amount = cartItem.amount;
-        }
-        this.cartService.setItemAmount(cartItem.item.id, cartItem.amount);
+          this.cartService.setItemAmount(cartItem.item.id, cartItem.amount);
+        });
       }
     });
   }

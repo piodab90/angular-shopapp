@@ -91,6 +91,13 @@
           <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="updateItem" datatype="html">
+        <source>Update item</source>
+        <target>Zaktualizuj przedmiot</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/item-add/item-add.component.html</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="goBack" datatype="html">
         <source>Go back</source>
         <target>Powrót</target>
@@ -307,6 +314,13 @@
       <trans-unit id="itemAdded" datatype="ts">
         <source>Item has been added.</source>
         <target>Przedmiot został dodany.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/item-add/item-add.component.ts</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="itemUpdated" datatype="ts">
+        <source>Item has been updated.</source>
+        <target>Przedmiot został zaktualizowany.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/item-add/item-add.component.ts</context>
         </context-group>

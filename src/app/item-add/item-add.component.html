@@ -21,4 +21,5 @@
     </mat-list-item>
 </mat-list>
 <button color="primary" mat-raised-button *ngIf="!isEditMode()" (click)="addItem()" i18n="@@addItem">Add item</button>
+<button color="primary" mat-raised-button *ngIf="isEditMode()" (click)="updateItem()" i18n="@@updateItem">Update item</button>
 <button color="primary" mat-raised-button routerLink="/admin" i18n="@@goBack">Go back</button>

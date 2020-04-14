@@ -35,25 +35,27 @@ export class ShoppingListComponent extends AbstractShoppingListComponent {
   }
 
   addItemsToCart(item: Item, amountOfItems: number) {
-    let lackingItems = this.cartService.addItemToCart(item, amountOfItems);
-    if (lackingItems > 0) {
-      let message: string;
-      if (lackingItems === amountOfItems) {
-        message = this.noItemsAddedMessage;
-      } else {
-        let addedItems = amountOfItems - lackingItems;
-        message = this.lackingItemsPrefixMessage + addedItems;
-        if (addedItems === 1) {
-          message += this.oneItemMessage;
-        } else if (addedItems > 1 && addedItems < 5) {
-          message += this.fewItemsMessage;
-        } else if (addedItems >= 5) {
-          message += this.manyItemsMessage;
+    let lackingItemsObservable = this.cartService.addItemToCart(item, amountOfItems);
+    lackingItemsObservable.subscribe(lackingItems => {
+      if (lackingItems > 0) {
+        let message: string;
+        if (lackingItems === amountOfItems) {
+          message = this.noItemsAddedMessage;
+        } else {
+          let addedItems = amountOfItems - lackingItems;
+          message = this.lackingItemsPrefixMessage + addedItems;
+          if (addedItems === 1) {
+            message += this.oneItemMessage;
+          } else if (addedItems > 1 && addedItems < 5) {
+            message += this.fewItemsMessage;
+          } else if (addedItems >= 5) {
+            message += this.manyItemsMessage;
+          }
+          message += this.lackingItemsMessage;
         }
-        message += this.lackingItemsMessage;
+        this.snackBar.open(message);
       }
-      this.snackBar.open(message);
-    }
+    });
   }
 
   ConvertStringToNumber(input: string) {
