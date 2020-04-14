@@ -15,17 +15,23 @@
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let element; let i = index" [attr.colspan]="displayedColumns.length">
         <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <table>
-          <tr>
-            <mat-form-field floatLabel="never" appearance="fill">
-                <mat-label i18n="@@typeAmountOfItems">Type amount of items</mat-label>
-                <input matInput type="number" [(ngModel)]="amountOfItemsToAdd" min="0" max="{{element.quantity}}">
-            </mat-form-field>
-            <button color="primary" mat-raised-button (click)="addItemsToCart(element, ConvertStringToNumber(amountOfItemsToAdd))" i18n="@@addToCart">Add to cart</button>
-          </tr>
-          <tr>{{element.description}}</tr>
-        </table>
-      </div>
+          <table>
+            <tr>
+              <td>
+                <mat-form-field floatLabel="never" appearance="fill">
+                    <mat-label i18n="@@typeAmountOfItems">Type amount of items</mat-label>
+                    <input matInput type="number" [(ngModel)]="amountOfItemsToAdd" min="0" max="{{element.quantity}}">
+                </mat-form-field>
+                <button color="primary" mat-raised-button (click)="addItemsToCart(element, ConvertStringToNumber(amountOfItemsToAdd))" i18n="@@addToCart">Add to cart</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{element.description}}
+              </td>
+            </tr>
+          </table>
+        </div>
       </td>
     </ng-container>
   
